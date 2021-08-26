@@ -21,3 +21,4 @@ function createDimondShape(size){
     }
  }
  createDimondShape(9);
+ 
