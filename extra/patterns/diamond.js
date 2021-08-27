@@ -21,7 +21,4 @@ function createDimondShape(size){
     }
  }
  const size = process.argv.slice(2);
- createDimondShape(5);
- 
-
- //process.stdout.write
+ createDimondShape(size);
