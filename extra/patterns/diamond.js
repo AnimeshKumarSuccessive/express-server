@@ -20,5 +20,8 @@ function createDimondShape(size){
        }
     }
  }
- createDimondShape(9);
+ const size = process.argv.slice(2);
+ createDimondShape(5);
  
+
+ //process.stdout.write
