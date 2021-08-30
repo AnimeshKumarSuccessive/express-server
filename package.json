@@ -1,0 +1,26 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "the training is of day one",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx babel-node extra/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnimeshKumarSuccessive/express-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnimeshKumarSuccessive/express-server/issues"
+  },
+  "homepage": "https://github.com/AnimeshKumarSuccessive/express-server#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0"
+  }
+}
