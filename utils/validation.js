@@ -30,7 +30,7 @@ const users = [     // Array of Objects, Objects contain email
         users.forEach(element => {
             const {traineeEmail,reviewerEmail} = element      
 
-            validateEmail(traineeEmail,reviewerEmail)==true?validUsers.push(traineeEmail,reviewerEmail):invalidUsers.push(traineeEmail),reviewerEmail
+            validateEmail(traineeEmail,reviewerEmail) ? validUsers.push(element): invalidUsers.push(element);
             }
         );
     }
