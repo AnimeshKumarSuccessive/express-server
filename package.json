@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npx babel-node extra/index.js",
+    "extra": "npx babel-node extra/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
