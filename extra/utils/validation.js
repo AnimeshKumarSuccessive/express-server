@@ -1,7 +1,7 @@
 import { validateEmail } from "./helpers.js";
 
 
-
+/*
     var validUsers = []     // List of Valid users
     var invalidUsers = []   // List of Invalid users
 
@@ -32,7 +32,27 @@ import { validateEmail } from "./helpers.js";
           });
           console.log('Number of Invalid users: \n', invalidUsers.length)
     }
+*/
 
+    
 
+    const validateUsers=(users)=>{
+        const validUsers = []     // List of Valid users
+        const invalidUsers = []   // List of Invalid users
+
+        users.forEach(element => {
+            const {traineeEmail,reviewerEmail} = element      
+
+            validateEmail(traineeEmail,reviewerEmail) ? validUsers.push(element): invalidUsers.push(element);
+            }
+        );
+        console.log('invalidUsers', invalidUsers)
+        console.log('validUsers', validUsers)    
+        console.log('Number of Invalid users: \n', invalidUsers.length)
+        console.log('Number of valid users: \n', validUsers.length) 
+    
+    }
+//    validateUsers(users)
+   
 
     export default validateUsers;
