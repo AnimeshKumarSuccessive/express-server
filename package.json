@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "the training is of day one",
   "main": "index.js",
-  "type": "module",
+
   "scripts": {
-    "extra": "npx babel-node extra/index.js",
+    "extra": "npx babel-node extra",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
