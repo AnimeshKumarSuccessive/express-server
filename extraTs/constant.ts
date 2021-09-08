@@ -26,5 +26,3 @@ const users = [     // Array of Objects, Objects contain email
     ]
 
 export {permissions,users}
-
-

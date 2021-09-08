@@ -1,6 +1,6 @@
-const equilateral = (n)=>{
+const equilateral = (n : number)=>{
 //const n = 10;
-let string = "";
+let string: string = "";
 // External loop
 for (let i = 1; i <= n; i++) {
   // printing spaces

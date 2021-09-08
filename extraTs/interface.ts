@@ -7,7 +7,7 @@ interface getUsers{
     all: string[];
     read: string[];
     write: string[];
-    delete: string[];
+    delete: any[];
 }
 
 interface UserType{

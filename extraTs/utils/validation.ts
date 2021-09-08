@@ -1,6 +1,6 @@
 import { validateEmail } from "./helpers.js";  
 
-    const validateUsers=(users)=>{
+    const validateUsers=(users : any) => {
         const validUsers = []     // List of Valid users
         const invalidUsers = []   // List of Invalid users
 
