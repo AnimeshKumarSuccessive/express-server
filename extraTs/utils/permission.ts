@@ -1,6 +1,6 @@
 import {permissions} from "../constant.js";
 
-const hasPermission : any = (moduleName, role, permissionType) =>{
+const hasPermission : any = (moduleName: any, role: any, permissionType: any) =>{
     const mod: boolean = permissions.hasOwnProperty(moduleName);
     const result: any = mod && (permissions[moduleName][permissionType].includes(role) || permissions[moduleName].all.includes(role))
     return result
