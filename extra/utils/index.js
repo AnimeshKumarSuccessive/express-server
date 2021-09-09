@@ -1,3 +1,2 @@
-import hasPermission from "./permission.js";
-import validateUsers from "./validation.js";
-export {hasPermission, validateUsers}
+export { default as hasPermission } from './permission';
+export { default as validateUsers } from './validation';
