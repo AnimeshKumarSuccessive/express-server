@@ -1,5 +1,4 @@
 const equilateral = (n)=>{
-//const n = 10;
 let string = "";
 // External loop
 for (let i = 1; i <= n; i++) {
@@ -14,5 +13,7 @@ for (let i = 1; i <= n; i++) {
   string += "\n";
 }
 console.log(string);
-} 
+}
+
 export default equilateral
+

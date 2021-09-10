@@ -1,4 +1,4 @@
-const diamond=(size)=>{
+const diamond = (size) => {
     for(var i=1;i<=size;i++){
        for(var s=size-1;s>=i;s--){
           process.stdout.write(" ");
@@ -20,4 +20,5 @@ const diamond=(size)=>{
        }
     }
  }
- export default diamond 
+
+export default diamond 

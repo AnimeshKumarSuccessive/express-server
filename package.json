@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "the training is of day one",
   "main": "index.js",
-  "type": "module",
+
   "scripts": {
+
     "start:extra": "babel-node extra",
     "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/src/index.js",
+    "extra": "npx babel-node extra",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
