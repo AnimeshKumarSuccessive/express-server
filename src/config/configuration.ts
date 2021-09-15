@@ -1,16 +1,19 @@
-import {config} from 'dotenv';
-// import * as joi from '@hapi/joi';
-
-// const envVarsSchema=joi.Objects({
-//   NODE_ENV:joi.string().default('dev'),
-//   PORT: joi.number().default(9000),
-// }).unknown().required();
-
-// const {value: envVars}=envVarsSchema.validate(process.env);
+import { config } from 'dotenv';
 config();
-const Configure: Iconfig= Object.freeze({
-  env: process.env.NODE_ENV,
-  port: process.env.PORT,
-});
 
-export default Configure
+import * as Joi from '@hapi/joi';
+
+const envVar = Joi.object({    
+  PORT: Joi.number().default(9000),
+  NODE_ENV: Joi.string().default('dev'),
+}).unknown().required();
+
+const { value: envVars } = envVar.validate(process.env);    
+import IConfig from './Iconfig';
+
+const configuration: IConfig = {
+  port: envVars.PORT,
+  env: envVars.NODE_ENV,
+};
+
+export default Object.freeze(configuration);
