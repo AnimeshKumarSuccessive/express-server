@@ -26,6 +26,7 @@
     "@babel/core": "^7.15.0",
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.15.0",
+    "@hapi/joi": "^17.1.1",
     "@types/node": "^16.7.13",
     "commitizen": "^4.2.4",
     "husky": "^7.0.2",
