@@ -3,15 +3,15 @@ interface EmailType {
     reviewerEmail: string;
 }
 
-interface getUsers{
+interface GetUsers {
     all: string[];
     read: string[];
     write: string[];
     delete: any[];
 }
 
-interface UserType{
-    getUsers: getUsers;
+interface UserType {
+    getUsers: GetUsers;
 }
 
-export {EmailType , UserType , getUsers}
+export { EmailType , UserType , GetUsers };

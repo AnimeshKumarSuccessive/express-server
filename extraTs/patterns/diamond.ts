@@ -1,23 +1,23 @@
-const diamond=(size : number)=>{
-    for(var i=1;i<=size;i++){
-       for(var s=size-1;s>=i;s--){
-          process.stdout.write(" ");
+const diamond = (size: number) => {
+    for (let i = 1; i <= size; i++) {
+       for (let s = size - 1; s >= i; s--) {
+          process.stdout.write(' ');
        }
-       for(var j=1;j<=i;j++){
-          process.stdout.write("* ")
+       for (let j = 1; j <= i; j++) {
+          process.stdout.write('* ');
        }
        console.log();
     }
-    if(i==size+1){
-       for(var i=1;i<=size-1;i++){
-          for(var s=1;s<=i;s++){
-             process.stdout.write(" ");
+
+       for (let i = 1; i <= size - 1; i++) {
+          for (let s = 1; s <= i; s++) {
+             process.stdout.write(' ');
           }
-          for(j=i;j<=size-1;j++){
-             process.stdout.write("* ");
+          for (let j = i; j <= size - 1; j++) {
+             process.stdout.write('* ');
           }
           console.log();
        }
-    }
- }
- export default diamond 
+
+ };
+ export default diamond;

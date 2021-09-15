@@ -1,12 +1,11 @@
-const permissions = 
-{
+const permissions = {
     'getUsers': {
     all: ['head-trainer'],
     read : ['trainee', 'trainer'],
     write : ['trainer'],
     delete: [],
     }
-}
+};
 
 const users = [     // Array of Objects, Objects contain email
     {
@@ -23,6 +22,6 @@ const users = [     // Array of Objects, Objects contain email
         traineeEmail: 'trainee3@successive.tech',
         reviewerEmail: 'reviewer3@gmail.com',
     },
-    ]
+    ];
 
-export {permissions,users}
+export { permissions, users };

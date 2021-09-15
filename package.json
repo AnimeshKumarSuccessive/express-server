@@ -9,8 +9,8 @@
     "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/tslint/bin/tslint -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
-    "lint:fix": "npm run lint --fix"
+    "lint": "tslint -c tslint.json -p tsconfig.json 'extraTs/**/*.{j,t}s'",
+    "lint:fix": "tslint --fix -c tslint.json -p tsconfig.json 'extraTs/**/*.{j,t}s'"
   },
   "repository": {
     "type": "git",
