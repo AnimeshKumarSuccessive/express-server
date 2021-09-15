@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx babel-node extra/index.js",
     "start:extra": "babel-node extra",
-    "start:extraTs": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
+    "start:src": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
     "nodemon": "nodemon ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -c tslint.json -p tsconfig.json 'extraTs/**/*.{j,t}s'",
@@ -26,7 +26,6 @@
     "@babel/core": "^7.15.0",
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.15.0",
-    "@hapi/joi": "^17.1.1",
     "@types/node": "^16.7.13",
     "commitizen": "^4.2.4",
     "husky": "^7.0.2",
