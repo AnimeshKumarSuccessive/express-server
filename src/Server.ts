@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import { router } from './router';
 import { notFoundRoute, errorHandler } from './libs/routes';
 
 export default class Server {
@@ -37,7 +38,7 @@ public initBodyParser() {
       console.log('POST requested..', req.body);
       res.send('I am OK');
     });
-
+    this.app.use('/api', router);
     this.app.use(notFoundRoute);
     this.app.use(errorHandler);
   }

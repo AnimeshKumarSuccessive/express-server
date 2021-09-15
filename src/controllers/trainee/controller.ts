@@ -42,8 +42,11 @@ class Trainee {
         const data = trainee.find((post, index) => {
           if (post.name === requestName) return true;
         });
+        if(data){
         data.designation = 'Associate Engineer';
         return res.status(200).send({ message: 'Updated trainee successfully', data: trainee });
+        }
+        return res.send({message: `Trainee ${requestName} not found.`})
     }
     rawTraineeData = () => {
         const trainee = [
@@ -73,10 +76,18 @@ class Trainee {
     delete = (req: Request, res: Response) => {
         const trainee = this.rawTraineeData();
         const requestName = req.params.name;
+        const data = trainee.find((post, index) => {
+            if (post.name === requestName) return true;
+          });
+          if (data === undefined){
+            return res.send({message: `Trainee ${requestName} not found.`})
+          }
         const deletedData = this.rawTraineeData().filter((post, index) => {
             if (post.name !== requestName) return true;
-        });
-        return res.status(200).send({ message: 'deleted trainee successfully', data: deletedData });
+        });        
+            return res.status(200).send({ message: 'Trainee removed successfully', data: deletedData });
+
+            
     }
 }
 

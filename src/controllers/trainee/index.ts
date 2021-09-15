@@ -1,3 +1,3 @@
-import TraineeRoutes from './route';
+import router from './route';
 
-export default TraineeRoutes;
+export default router;
