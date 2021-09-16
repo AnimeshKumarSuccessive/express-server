@@ -1,11 +1,9 @@
-// import { Router } from 'express';
+import { Router } from 'express';
 import  TraineeRoutes  from './trainee';
 
-// const router = Router();
+const router = Router();
 
-// router.use('/trainee', trainee.get);
-// router.use('/trainee', trainee.post);
-
-
+router.use('/trainee', TraineeRoutes.get);
+router.use('/trainee', TraineeRoutes.post);
 
 export default TraineeRoutes;

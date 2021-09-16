@@ -19,6 +19,14 @@ public initBodyParser() {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
   }
+  public setupRoutes() {
+    this.app.get('/health-check', (req, res, next) => {
+      res.status(200).json({ status: 200, message: 'I am OK' });
+    });
+
+    this.app.use(notFoundRoute);
+    this.app.use(errorHandler);
+  }
 
   public run() {
     const { port, env } = this.config;
@@ -27,19 +35,5 @@ public initBodyParser() {
       console.log(`Listening on ${port} in ${env} environment`);
     });
     return this;
-  }
-
-  public setupRoutes() {
-    this.app.get('/health-check', (req, res, next) => {
-      res.status(200).json({ status: 200, message: 'I am OK' });
-    });
-
-    this.app.post('/data', (req, res, next) => {
-      console.log('POST requested..', req.body);
-      res.send('I am OK');
-    });
-    this.app.use('/api', router);
-    this.app.use(notFoundRoute);
-    this.app.use(errorHandler);
   }
   }
