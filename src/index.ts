@@ -1,7 +1,6 @@
-import config from './config/configuration';
-import Server from './Server';
+import configuration from "./config/configuration";
+import Server from "./Server";
 
-const server = new Server(config);
-
-server.boostrap();
-server.run();
+const server =new Server(configuration);
+server.bootstrap()
+server.run()

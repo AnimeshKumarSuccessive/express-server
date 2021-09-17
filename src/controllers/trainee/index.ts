@@ -1,3 +1,1 @@
-import router from './route';
-
-export default router;
+export { default } from './route';
