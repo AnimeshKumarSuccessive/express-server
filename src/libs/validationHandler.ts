@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 
-// tslint:disable-next-line: no-var-requires
 const { checkSchema, validationResult } = require('express-validator');
 
 const validationHandler = (validator: any) => {

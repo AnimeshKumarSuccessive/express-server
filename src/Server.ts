@@ -15,21 +15,17 @@ export default class Server {
 
         this.app = express();
     }
-    /**
-     * This method use to set health-check route
-     */
+
     setupRoutes() {
         this.app.get('/health-check', (req, res) => {
             res.send("I am OK")
         })
-        // use notFoundRoute middleware
-        this.app.use(route.notFoundRoute);
-        // use errorHandler middleware
-        this.app.use(route.errorHandler);
 
-        // parse application/json
+        this.app.use(route.notFoundRoute);
+        this.app.use(route.errorHandler);
         this.app.use(bodyParser.json());
     }
+
     initBodyParser() {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());
@@ -54,8 +50,5 @@ export default class Server {
 
         return this;
     }
-
-
-
-
+    
 }

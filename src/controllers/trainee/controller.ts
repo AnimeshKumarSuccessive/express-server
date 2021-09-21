@@ -29,7 +29,7 @@ class Trainee {
     }
     post(req: Request, res: Response, next: Next) {
         console.log(req.body);
-        const { name, designation, location } = req.body;
+        const { name, designation, location } = req.body.params;
         if (!name) {
             return res.status(404).send({ message: 'required trainee details', error: 'error msg' });
         }
@@ -87,8 +87,7 @@ class Trainee {
             if (post.name !== requestName) return true;
         });        
             return res.status(200).send({ message: 'Trainee removed successfully', data: deletedData });
-
-            
+                        
     }
 }
 
