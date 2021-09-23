@@ -9,4 +9,6 @@ router.get('/', validationHandler(validation.get), TraineeRoutes.get);
 router.post('/', validationHandler(validation.create), TraineeRoutes.post);
 router.put('/:name', validationHandler(validation.update), TraineeRoutes.put);
 router.delete('/:id?', validationHandler(validation.delete), TraineeRoutes.delete);
+router.post('/createToken', TraineeRoutes.createToken);
+
 export default router;
