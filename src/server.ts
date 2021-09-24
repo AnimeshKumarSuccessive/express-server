@@ -30,9 +30,7 @@ export default class Server {
       console.log('middleWare2');
       next();
     }
-    /**
-     * To setup route
-     */
+
     setupRoutes() {
       const { app } = this;
       
@@ -57,14 +55,8 @@ export default class Server {
       app.use(route.errorHandler);
     }
   
-    /**
-     * To setup Body-Parser
-     */
     initBodyParser() {
-      // parse application/x-www-form-urlencoded
       this.app.use(bodyParser.urlencoded({extended: true}));
-  
-      // parse application/json
       this.app.use(bodyParser.json());
     }
   
