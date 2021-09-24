@@ -3,5 +3,5 @@ import Server from './Server';
 
 const server = new Server(config);
 
-server.boostrap();
+server.bootstrap();
 server.run();
