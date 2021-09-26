@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as route  from './libs/routes';
+import Database from './libs/Database';
 import router from './router';
 import NotFoundRoute from './libs/routes/NotFoundRoute';
 
@@ -70,13 +71,18 @@ export default class Server {
       return this;
     }
 
-    run() {
-      const { port, env } = this.config;
-      this.app.listen(port, () => {
+    public async run() {
+      const { port, env, mongoURL } = this.config;
+      try {
+        await Database.open(mongoURL);
+        this.app.listen(port, () => {
           const message = `|| App is running at port '${port}' in '${env}' mode ||`;
-          console.log(message);
+          console.log(message);      
       });
 
+      } catch(error){
+          console.log("inside catch", error);
+      };
       return this;
   }
 }
