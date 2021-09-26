@@ -50,4 +50,4 @@ class Users {
     }
 }
 
-export default new users();
+export default new Users();
