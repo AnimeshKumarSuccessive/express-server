@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken';
 import  config  from '../../config/configuration';
-import hasPermission from '../../../extraTs/utils/permission';
+import hasPermission from '../../libs/hasPermission';
 
 export default (module, permissionType) => async(req, res, next) => {
     debugger

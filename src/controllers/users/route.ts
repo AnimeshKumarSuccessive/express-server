@@ -10,7 +10,6 @@ const router = Router();
 
 console.log(UserRoutes);
 
-
 router.get('/', authMiddleWare(users, 'read'), validationHandler(validation.get), UserRoutes.get);
 router.post('/', authMiddleWare(users, 'write'), validationHandler(validation.create), UserRoutes.post);
 router.put('/', authMiddleWare(users, 'write'), validationHandler(validation.update), UserRoutes.put);

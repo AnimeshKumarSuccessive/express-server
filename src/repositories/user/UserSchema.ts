@@ -1,7 +1,8 @@
 import * as mongoose from 'mongoose';
+import VersionableSchema from '../versionable/VersionableSchema';
 // import { stringifyConfiguration } from 'tslint/lib/configuration';
 
-class UserSchema extends mongoose.Schema {
+class UserSchema extends VersionableSchema {
 
     constructor(collections: any) {
         const baseSchema = Object.assign({
