@@ -6,6 +6,7 @@ import { request } from 'http';
 
 class Users {
     get(req: Request, res: Response, next: Next) {
+        
         return res.status(200).send({ message: 'Fetched data Successfully', data: users });
     }
 
@@ -43,11 +44,13 @@ class Users {
         return res.status(200).send({ message: 'user removed successfully', data });
     }
 
-    createToken(req:Request, res:Response, next:Next){
-        const token = jwt.sign(req.body, config.secret, {expiresIn:'10h'});
-        console.log(token);
-        return next({message: 'Token Succesfully Created', data: { token }, status: 'success'});
+    createToken(req:Request, res:Response, next:Next) {
+        
+            const token = jwt.sign(req.body, config.secret, {expiresIn:'10h'});
+            console.log(token);
+            return res.status(200).send({message: 'Token Succesfully Created', data: { token }, status: 'success'});  
     }
+    
 }
 
 export default new Users();
