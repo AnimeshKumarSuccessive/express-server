@@ -1,6 +1,5 @@
 import { Request, Response, Next } from 'express';
 import { trainee } from '../../libs/constants';
-import { request } from 'http';
 
 class Trainee {
     get(req: Request, res: Response, next: Next) {

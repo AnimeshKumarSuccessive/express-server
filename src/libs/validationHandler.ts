@@ -8,8 +8,6 @@ const validationHandler = (validator: any) => {
       console.log(req);
       const errors = validationResult(req);
       console.log('errors', errors);
-      console.log('errors.isEmpty', errors.isEmpty());
-      console.log('errors.array', errors.array());
       if (!errors.isEmpty()) {
         next({ message: 'Bad Request', status: 400, error: errors.array() });
       }

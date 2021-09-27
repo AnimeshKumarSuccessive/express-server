@@ -1,5 +1,5 @@
 import Config from "./config/configuration";
-import Server from "./server";
+import Server from "./Server";
 
 const server = new Server (Config);
 
