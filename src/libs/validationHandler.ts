@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-const { checkSchema, validationResult } = require('express-validator');
+import { checkSchema, validationResult } from 'express-validator';
 
 const validationHandler = (validator: any) => {
   return [
@@ -11,7 +11,7 @@ const validationHandler = (validator: any) => {
       console.log('errors.isEmpty', errors.isEmpty());
       console.log('errors.array', errors.array());
       if (!errors.isEmpty()) {
-        next({ message: 'Bad Request', status: 422, error: errors.array() });
+        next({ message: 'Bad Request', status: 400, error: errors.array() });
       }
       next();
     }
