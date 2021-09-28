@@ -4,4 +4,5 @@ export default interface IConfig {
     secret: string;
     mongoURL: string;
     pass: string;
+    swaggerUrl: string;
 }
