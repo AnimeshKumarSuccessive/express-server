@@ -1,56 +1,55 @@
-import { Request, Response, Next } from 'express';
-import { users } from '../../libs/constants';
+import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
 import config from '../../config/configuration'
-import { request } from 'http';
+import { userRepository } from '../../libs/routes/authMiddleWare';
 
-class Users {
-    get(req: Request, res: Response, next: Next) {
-        
-        return res.status(200).send({ message: 'Fetched data Successfully', data: users });
+class User {
+    read(read: any): any {
+        throw new Error('Method not implemented.');
     }
+    async get(req: Request, res: Response, next: NextFunction) {
+        let user;
+        const token = req.header('Authorization');
+        const { secret } = config;
+        try {
+            user = jwt.verify(token, secret);
+            const userData = await userRepository.findOne({ _id: user._id });
+            return res.status(200).send({ message: 'Fetched data Successfully', data: userData });
+            
+        } catch (error) {
+            return res.status(500).json({ message: 'error', error });
+        }
 
-    post(req: Request, res: Response, next: Next) {
+    }
+    async post(req: Request, res: Response, next: NextFunction) {
         console.log(req.body);
-        const { name, designation, location } = req.body;
-        const result = {
-            name,
-            designation,
-            location,
-        };
-
-        if (!name) {
-            return next({ message: 'Bad request', error: 'Name is required' });
+        const users = {
+            name: req.body.name,
+            email: req.body.email,
+            role: req.body.role,
+            password: req.body.password,
         }
-        return res.status(200).send({ message: 'users added successfully', data: result });
+        const userData = await userRepository.create(users);
+        return res.status(200).send({ message: 'user added sucessfully', data: userData });
     }
+    put = async (req: Request, res: Response) => {
+        const  _id  = req.params._id 
+        const { name, email } = req.body;
+        const userData = await userRepository.update({ originalId: _id, name: name, email: email });
 
-    put = (req: Request, res: Response, next: Next): any => {
-        const { id: usersId, ...rest  } = req.body;
-        const data = users.find(({ id }) => id === usersId);
-        if (!data) {
-            return next({ message: 'Bad request', error: 'Id is incorrect' });
-        }
-        const result = { ...data, ...rest };
-        return res.status(200).send({ message: 'users removed successfully', data: result });
+        return res.status(200).send({ message: 'Updated user successfully', data: userData });
     }
+    delete = async (req: Request, res: Response) => {
+        const requestId = req.params._id;
+        const deleteData = await userRepository.delete(requestId)
+        return res.status(200).send({ message: 'deleted user successfully', data: deleteData });
+    }
+    createToken(req: Request, res: Response, next: NextFunction) {
+        const token = jwt.sign(req.body, config.secret, { expiresIn: '10h' });
+        console.log(token);
+        res.status(200).send({ message: 'Token Succesfully Created', data: { token }, status: 'success' });
 
-    delete = (req: Request, res: Response, next: Next): any => {
-        const { params: { id: usersId = '' } = {} } = req;
-        const data = users.find(({ id }) => id === usersId);
-        if (!data) {
-           return next({ message: 'Bad request', error: 'Id is incorrect' });
-        }
-        return res.status(200).send({ message: 'user removed successfully', data });
     }
-
-    createToken(req:Request, res:Response, next:Next) {
-        
-            const token = jwt.sign(req.body, config.secret, {expiresIn:'10h'});
-            console.log(token);
-            return res.status(200).send({message: 'Token Succesfully Created', data: { token }, status: 'success'});  
-    }
-    
 }
 
-export default new Users();
+export default new User();
