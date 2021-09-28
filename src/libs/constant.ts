@@ -4,6 +4,8 @@ export const users: string = 'users';
 export const TRAINER: string = 'trainer';
 export const HEAD_TRAINER: string = 'head-trainer';
 export const BCRYPT_SALT_ROUNDS: number = 10;
+export const LIMIT = 10;
+export const SKIP = 0;
 
 export const permissions: any = {
     trainees: {
@@ -13,5 +15,7 @@ export const permissions: any = {
     },
     users: {
         read: [TRAINEE, TRAINER, HEAD_TRAINER],
+        write : [TRAINER, HEAD_TRAINER],
+        delete : [HEAD_TRAINER],
     },
 }
