@@ -1,4 +1,4 @@
-export const trainee: any = [
+export const trainee = [
     {
         name: 'Deepak',
         designation: 'Software Developer',
