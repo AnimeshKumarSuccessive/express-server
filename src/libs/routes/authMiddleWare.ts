@@ -1,7 +1,10 @@
 import * as jwt from 'jsonwebtoken';
 import  config  from '../../config/configuration';
 import hasPermission from '../../libs/hasPermission';
+import UserRepository from '../../repositories/user/UserRepository';
 
+
+export const userRepository: UserRepository = new UserRepository();
 export default (module, permissionType) => async(req, res, next) => {
     debugger
     const token = req.header('Authorization');

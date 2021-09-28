@@ -1,4 +1,4 @@
-import { permissions } from './constant.js';
+import { permissions } from './constant';
 
 const hasPermission: any = (moduleName: string, role: string, permissionType: string): boolean => {
     const mod: boolean = permissions.hasOwnProperty(moduleName);
