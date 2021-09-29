@@ -3,7 +3,6 @@ import * as bodyParser from 'body-parser';
 import * as route  from './libs/routes';
 import Database from './libs/Database';
 import router from './router';
-import NotFoundRoute from './libs/routes/NotFoundRoute';
 
 
 export default class Server {
