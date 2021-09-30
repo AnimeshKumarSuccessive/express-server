@@ -50,6 +50,3 @@ class Trainee {
 }
 
 export default new Trainee();
-
-
-
