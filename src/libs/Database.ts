@@ -1,8 +1,5 @@
 import * as mangoose from "mongoose";
-<<<<<<< HEAD
 import seedData from "./seedData";
-=======
->>>>>>> e089dc67aba71be58075c050e538faf524651bb8
 export default class Database{
     public static open(mongoURL) {
         return new Promise((resolve, reject) => {
