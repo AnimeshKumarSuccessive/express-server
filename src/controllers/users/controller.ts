@@ -2,14 +2,13 @@ import { Request, Response, Next } from 'express';
 import { users } from '../../libs/constants';
 import * as jwt from 'jsonwebtoken';
 import config from '../../config/configuration'
-import { request } from 'http';
 
 class Users {
-    get(req: Request, res: Response, next: Next) {
+    get = (req: Request, res: Response, next: Next): string => {
         return res.status(200).send({ message: 'Fetched data Successfully', data: users });
     }
 
-    post(req: Request, res: Response, next: Next) {
+    post = (req: Request, res: Response, next: Next): string  => {
         console.log(req.body);
         const { name, designation, location } = req.body;
         const result = {
@@ -43,7 +42,7 @@ class Users {
         return res.status(200).send({ message: 'user removed successfully', data });
     }
 
-    createToken(req:Request, res:Response, next:Next){
+    createToken= (req:Request, res:Response, next:Next): string => {
         const token = jwt.sign(req.body, config.secret, {expiresIn:'10h'});
         console.log(token);
         return next({message: 'Token Succesfully Created', data: { token }, status: 'success'});
