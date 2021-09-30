@@ -8,16 +8,8 @@ import { users } from '../../libs/constant';
 
 const router = Router();
 
-<<<<<<< HEAD
 console.log(UserRoutes);
 
-=======
-router.get('/', validationHandler(validation.get), usersRoutes.get);
-router.post('/', validationHandler(validation.create), usersRoutes.post);
-router.put('/:id', validationHandler(validation.update), usersRoutes.put);
-router.delete('/:id', validationHandler(validation.delete), usersRoutes.delete);
-router.post('/createToken', usersRoutes.createToken);
->>>>>>> c64c9dc33208aa221b794b49d490e800efea4f01
 
 router.get('/', authMiddleWare(users, 'read'), validationHandler(validation.get), UserRoutes.get);
 router.post('/', authMiddleWare(users, 'write'), validationHandler(validation.create), UserRoutes.post);
