@@ -11,6 +11,7 @@ class UserSchema extends mongoose.Schema {
             password: String
     });
     super(baseSchema, collections);
+    }
 }
-}
+
 export default UserSchema;

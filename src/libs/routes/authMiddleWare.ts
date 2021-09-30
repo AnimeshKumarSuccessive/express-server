@@ -3,7 +3,6 @@ import  config  from '../../config/configuration';
 import hasPermission from '../../../extraTs/utils/permission';
 
 export default (module, permissionType) => async(req, res, next) => {
-    debugger
     const token = req.header('Authorization');
     console.log(token);
     if (!token) {
@@ -13,8 +12,7 @@ export default (module, permissionType) => async(req, res, next) => {
     console.log(secret);
 
     let user;
-    try {
-        debugger
+    try {     
         user = jwt.verify(token, secret);
     }
     catch (err) {
