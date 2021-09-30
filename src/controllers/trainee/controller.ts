@@ -4,11 +4,11 @@ import * as jwt from 'jsonwebtoken';
 import config from '../../config/configuration'
 
 class Trainee {
-    get(req: Request, res: Response, next: Next) {
+    get = (req: Request, res: Response, next: Next): string => {
         return res.status(200).send({ message: 'Fetched data Successfully', data: trainee });
     }
 
-    post(req: Request, res: Response, next: Next) {
+    post = (req: Request, res: Response, next: Next): string => {
         console.log(req.body);
         const { name, designation, location } = req.body;
         const result = {
@@ -23,7 +23,7 @@ class Trainee {
         return res.status(200).send({ message: 'trainee added successfully', data: result });
     }
 
-    put = (req: Request, res: Response, next: Next): any => {
+    put = (req: Request, res: Response, next: Next): string => {
         const { id: traineeId, ...rest  } = req.body;
         const data = trainee.find(({ id }) => id === traineeId);
         if (!data) {
@@ -42,7 +42,7 @@ class Trainee {
         return res.status(200).send({ message: 'Trainee removed successfully', data });
     }
 
-    createToken(req:Request, res:Response, next:Next){
+    createToken = (req:Request, res:Response, next:Next): string => {
         const token = jwt.sign(req.body, config.secret, {expiresIn:'10h'});
         console.log(token);
         return next({message: 'Token Succesfully Created', data: { token }, status: 'success'});

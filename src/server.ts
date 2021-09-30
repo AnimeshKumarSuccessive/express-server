@@ -1,8 +1,8 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import * as route  from './libs/routes';
 import Database from './libs/Database';
-import router from './router';
+import mainRouter from './router';
+import { notFoundRoute, errorHandler } from './libs/routes';
 
 export default class Server {
 
@@ -29,9 +29,9 @@ export default class Server {
           message: 'I am OK',
         });
       });
-      app.use('/api', router);
-      app.use(route.notFoundRoute);
-      app.use(route.errorHandler);
+      app.use('/api', mainRouter);
+      app.use(notFoundRoute);
+      app.use(errorHandler);
     }
   
     initBodyParser() {
