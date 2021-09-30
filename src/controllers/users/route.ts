@@ -8,7 +8,7 @@ const router = Router();
 router.get('/', validationHandler(validation.get), usersRoutes.get);
 router.post('/', validationHandler(validation.create), usersRoutes.post);
 router.put('/:id', validationHandler(validation.update), usersRoutes.put);
-router.delete('/:id?', validationHandler(validation.delete), usersRoutes.delete);
+router.delete('/:id', validationHandler(validation.delete), usersRoutes.delete);
 router.post('/createToken', usersRoutes.createToken);
 
 export default router;

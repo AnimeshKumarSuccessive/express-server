@@ -30,8 +30,8 @@ export default class Server {
         });
       });
       app.use('/api', mainRouter);
-      app.use(mainRouter.notFoundRoute);
-      app.use(mainRouter.errorHandler);
+      app.use(notFoundRoute);
+      app.use(errorHandler);
     }
   
     initBodyParser() {

@@ -16,14 +16,6 @@ export default () => {
                      password: 'Training@123'
                     }
                 );
-                userRepository.create(
-                    {
-                     name : 'Trainer' , 
-                     role: 'trainer', 
-                     email: 'trainer@successive.tech', 
-                     password: 'Training@123'
-                    }
-                );
             }
         }).catch(err => (console.log(err)));
 };
