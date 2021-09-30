@@ -1,10 +1,8 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import * as route  from './libs/routes';
 import Database from './libs/Database';
-import router from './router';
-import NotFoundRoute from './libs/routes/NotFoundRoute';
-
+import mainRouter from './router';
+import { notFoundRoute, errorHandler } from './libs/routes';
 
 export default class Server {
 
@@ -21,39 +19,19 @@ export default class Server {
     get application() {
       return this.app;
     }
-  
-    middleware1(req: express.Request, res: express.Response, next: express.NextFunction) {
-      console.log('middleWare1');
-      next();
-    }
-  
-    middleware2(req: express.Request, res: express.Response, next: express.NextFunction) {
-      console.log('middleWare2');
-      next();
-    }
 
     setupRoutes() {
       const { app } = this;
-      
-  
-      // Route 1
-      app.get('/health-check', this.middleware1, this.middleware2, (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      app.get('/health-check',(req: express.Request, res: express.Response, next: express.NextFunction) => {
         console.log('health-check api called.');
         res.status(200).json({
           status: 200,
           message: 'I am OK',
         });
       });
-  
-      // Route 2
-      app.post('/data', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-        console.log('post request', req.body);
-        res.send('I am OK');
-      });
-  
-      app.use('/api', router);
-      app.use(route.notFoundRoute);
-      app.use(route.errorHandler);
+      app.use('/api', mainRouter);
+      app.use(notFoundRoute);
+      app.use(errorHandler);
     }
   
     initBodyParser() {

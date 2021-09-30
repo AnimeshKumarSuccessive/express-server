@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose';
-// import { stringifyConfiguration } from 'tslint/lib/configuration';
 
 class UserSchema extends mongoose.Schema {
 
